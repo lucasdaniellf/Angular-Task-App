@@ -1,0 +1,18 @@
+<div class="root">
+    <div>
+        <label for="task-title">Title:</label>
+        <input class="form-task-title" type="text" name="task-title" [(ngModel)]="taskToUpdate.Title">            
+    </div>
+    <div>
+        <label for="task-description">Description:</label>
+        <textarea class="form-task-description" name="task-description" [(ngModel)]="taskToUpdate.Description"></textarea>    
+    </div>
+    <div class="form-task-due-date">
+        <label for="task-due-date">Due Date:</label>
+        <input type="date" name="task-due-date" (change)="onDueDateChanged($event)" [value]="taskToUpdate.DueDate | date:'yyyy-MM-dd'">    
+    </div>
+    <div class="form-button-container">
+        <button (click)="onSave()">Save</button>
+        <button (click)="onCancel()">Close</button>
+    </div>
+</div>

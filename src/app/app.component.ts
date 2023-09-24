@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import TaskService from './shared/services/TaskService';
+import { Task } from './shared/models/Task';
+import { TaskSharedDataService } from './shared/services/TaskSharedService';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TaskApp';
+ 
 }

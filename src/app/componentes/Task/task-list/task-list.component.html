@@ -1,0 +1,31 @@
+<div class="root">
+    <ng-container *ngFor="let taskGroup of taskGroups">
+        <div class="task-list-title-container">
+            <div class="task-list-title">{{taskGroup.name}}</div>
+            <ng-template [ngIf]="taskGroup.name == 'ToDo'">
+                <button (click)="onAddClicked()" style="padding-inline: 2em;">Add</button>
+            </ng-template>    
+        </div>
+        <ng-container *ngFor="let task of taskGroup.value" class="task-card-container">
+            <app-task-card [task]="task"
+            (editTaskClicked)="onEditTaskClicked($event)"
+            (completeTaskChanged)="onCompletedTaskChanged($event)"
+            (deleteTaskClicked)="onDeleteTaskClicked($event)">
+            </app-task-card>
+        </ng-container>
+        <br>
+    </ng-container>
+    <ng-template [ngIf]="formVisible && selectedTask">
+        <div class="gray-background">
+            <app-task-form-modal [task]="selectedTask" (taskChanged)="onFormButtonClicked($event)"></app-task-form-modal>
+        </div>
+    </ng-template>
+    <ng-template [ngIf]="modalVisible && selectedTask">
+        <div class="gray-background">
+            <app-confirm-modal #AppModal 
+                    (modalConfirmation)="onModalConfirmation($event)">
+                <div>Deseja deletar a task: {{selectedTask.Title}}</div>
+            </app-confirm-modal>
+        </div>
+    </ng-template>
+</div>

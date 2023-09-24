@@ -1,0 +1,50 @@
+.root {
+    background-color: azure;
+    margin-block: 0.6em;
+    padding: 1em;
+    border-radius: 5px;
+
+    transition: 0.35s;
+}
+.root:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+}
+
+
+.task-title-container {
+    display: flex;
+}
+.task-title-container button {
+    flex:1fr;
+}
+.task-title {
+    font-weight: bold;
+    font-size: large;
+    text-transform: uppercase;
+    text-align: start;
+    flex: auto;
+}
+
+.description-container {
+    width: 100%;
+    min-height: 8em;
+    box-sizing: border-box;
+    padding-inline: 1em;
+    margin-top: 1em;
+    text-align: justify;
+    border: 1px solid #ccc;
+}
+
+
+.date-details-container {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-between;
+}

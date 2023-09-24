@@ -1,0 +1,25 @@
+<div class="root">
+    <div class="task-title-container">
+        <div class="task-title" (click)="onTaskClicked()">{{task.Title}}</div>
+        <button (click)="OnDeleteBtnClick()">Delete</button>
+    </div>
+    <ng-template [ngIf]="isClicked">
+        <div class="description-container">
+            <div>{{task.Description}}</div>
+        </div>
+        <div class="date-details-container">
+            <div>
+                <label for="due-date-input">Due Date: </label>
+                <input type="date" name="due-date-input" [value]="task.DueDate | date:'yyyy-MM-dd'" readonly>                    
+            </div>
+            <div>
+                <label for="task-complete-chkbox">Complete: </label>
+                <input type="checkbox" name="task-complete-chkbox" [checked]="task.CompletedDate ? true : false" (change)="onCompleteTask($event)">    
+            </div>
+        </div>
+        <div class="button-container">
+            <button (click)="onEditTaskClicked()">Edit</button>
+            <button (click)="onTaskClosed()">Close</button>
+        </div>
+    </ng-template>    
+</div>
